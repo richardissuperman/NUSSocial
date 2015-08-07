@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+<!-- title -->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settingtitle"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>
+
+
+    <!--  profile   -->
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/setting_profile_img"
+            android:src="@drawable/defualt_profile"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/setting_profile_img"
+            android:id="@+id/setting_profile_name"
+            android:text="庆"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="27dp"
+            android:layout_height="14dp"
+            android:layout_toRightOf="@id/setting_profile_name"
+            android:src="@drawable/ic_rating_lv_5"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"/>
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="@drawable/ic_card_divider"
+        android:scaleType="centerCrop"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp">
+
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_reg_login_account"
+            android:id="@+id/super_account"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的账号"
+            android:layout_toRightOf="@id/super_account"
+
+            android:layout_marginLeft="10dp" />
+
+
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/playground_blue"
+        android:text="通知"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="@drawable/ic_title_divider"
+        android:scaleType="centerCrop"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="0dp"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_setting_notification_icon"
+            android:id="@+id/setting_notification_img"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notification"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/setting_notification_img"
+            android:id="@+id/setting_notification_text"
+            android:layout_marginLeft="10dp"/>
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@drawable/ic_card_divider"
+            android:scaleType="centerCrop"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/setting_notification_img"
+            />
+
+    </RelativeLayout>
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_setting_self_service_icon"
+            android:id="@+id/setting_service_img"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="service"
+            android:layout_toRightOf="@id/setting_service_img"
+            android:id="@+id/setting_service_text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@drawable/ic_card_divider"
+            android:scaleType="centerCrop"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/setting_service_img"
+            />
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_setting_software_about_icon"
+            android:id="@+id/setting_about_img"
+
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="about"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/setting_about_img"
+            android:id="@+id/setting_about_text"
+            android:layout_marginLeft="10dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@drawable/ic_card_divider"
+            android:scaleType="centerCrop"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/setting_about_img"
+            />
+
+    </RelativeLayout>
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_setting_exit_icon"
+            android:id="@+id/setting_logout_img"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="logout"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/setting_logout_img"
+            android:id="@+id/setting_logout_text"
+            android:layout_marginLeft="10dp"/>
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@drawable/ic_card_divider"
+            android:scaleType="centerCrop"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/setting_logout_img"
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

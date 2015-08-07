@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60dp" android:layout_height="120dp" android:orientation="vertical"
+    android:background="@drawable/tab_border">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/tab_img"
+        android:background="@drawable/tab_border"/>
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/tab_txt"
+        android:background="@drawable/tab_border"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>
+<!-- From: file:/Users/qingzhong/Documents/Tutorial/NUSSocial/AndroidApp/NUSSocial/library/src/main/res/layout/tabviewlayout.xml -->
