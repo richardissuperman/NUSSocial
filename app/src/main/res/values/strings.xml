@@ -46,6 +46,6 @@ thanks Gennadii, it works! , but i have one more question, for example, if i wan
 
     <!--  tab4 settings  -->
 
-    <string name="settingtitle">Settings</string>
+    <string name="settingtitle">设置</string>
 
 </resources>

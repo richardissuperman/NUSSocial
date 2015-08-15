@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:layout_marginTop="10dp">
+    android:layout_marginTop="0dp"
+    android:textColor="@color/setting_header"
+
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -11,12 +14,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:background="@color/White"
 
                 >
                 <ImageView
@@ -42,6 +48,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="钟庆"
+                        android:textColor="@color/post_name"
                         android:id="@+id/textView2"
                         android:layout_toRightOf="@id/profileimg"
                         android:layout_marginLeft="8dp"/>
@@ -77,7 +84,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/testString"/>
+                        android:text="@string/testString"
+                        android:textColor="@color/Black"/>
                     <ImageView
                         android:layout_width="200dp"
                         android:layout_height="200dp"
@@ -89,18 +97,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:id="@+id/post_footer" android:orientation="horizontal"
+                    android:background="@color/post_like"
+
                     >
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@color/post_like"
+                        >
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/post_like"
+                            >
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -126,13 +140,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@color/post_like"
+                        >
 
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/post_like"
+                            >
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -159,13 +177,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        >
 
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/post_like"
+                            >
 
 
                             <ImageView
@@ -220,6 +241,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@color/White"
+                android:layout_marginTop="5dp"
                 >
                 <ImageView
                     android:layout_width="match_parent"
@@ -243,6 +266,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="钟庆"
+                        android:textColor="@color/post_name"
                         android:id="@+id/textView211"
                         android:layout_toRightOf="@id/profileimg11"
                         android:layout_marginLeft="8dp"/>
@@ -278,6 +302,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/Black"
                         android:text="@string/testString"/>
                     <ImageView
                         android:layout_width="200dp"
@@ -289,13 +314,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:id="@+id/post_footer1" android:orientation="horizontal"
+                    android:background="@color/post_like"
                     >
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@color/post_like"
+
+                        >
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -323,6 +352,8 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:background="@color/post_like"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -359,7 +390,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@color/post_like"
+                        >
 
 
                         <RelativeLayout
@@ -408,6 +441,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@color/White"
+                android:layout_marginTop="5dp"
                 >
                 <ImageView
                     android:layout_width="match_parent"
@@ -431,6 +466,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="钟庆"
+                        android:textColor="@color/post_name"
                         android:id="@+id/textView222"
                         android:layout_toRightOf="@id/profileimg22"
                         android:layout_marginLeft="8dp"/>
@@ -466,6 +502,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/Black"
                         android:text="@string/testString"/>
                     <ImageView
                         android:layout_width="200dp"
@@ -478,6 +515,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:id="@+id/post_footer2" android:orientation="horizontal"
+                    android:background="@color/post_like"
+
                     >
 
                     <RelativeLayout
@@ -515,7 +554,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@color/post_like"
+                        >
 
 
                         <RelativeLayout
@@ -548,7 +589,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@color/post_like"
+
+                        >
 
 
                         <RelativeLayout

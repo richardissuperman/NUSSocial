@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/White">
 <!-- title !!!-->
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="30dp"
+    android:layout_height="50dp"
+    android:background="@color/setting_header"
     >
 
     <TextView
@@ -13,8 +15,19 @@
         android:layout_height="wrap_content"
         android:text="@string/settingtitle"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:textColor="@color/Black"/>
 </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="@drawable/ic_title_divider"
+        android:scaleType="centerCrop"
+
+
+        />
+
 
 
     <!--  profile   -->
@@ -40,6 +53,7 @@
             android:layout_toRightOf="@id/setting_profile_img"
             android:id="@+id/setting_profile_name"
             android:text="庆"
+            android:textColor="@color/Black"
             android:layout_marginLeft="5dp"
             android:layout_centerVertical="true"/>
 
@@ -86,6 +100,7 @@
             android:layout_height="wrap_content"
             android:text="我的账号"
             android:layout_toRightOf="@id/super_account"
+            android:textColor="@color/Black"
 
             android:layout_marginLeft="10dp" />
 
@@ -116,7 +131,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp">
 
@@ -128,9 +143,11 @@
             android:layout_centerVertical="true"
             />
         <TextView
+            android:textColor="@color/Black"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="notification"
+            android:text="通知"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/setting_notification_img"
             android:id="@+id/setting_notification_text"
@@ -146,7 +163,7 @@
 
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:layout_below="@id/setting_notification_img"
             />
 
@@ -158,7 +175,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp">
 
@@ -171,7 +188,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="service"
+            android:text="服务"
+            android:textColor="@color/Black"
+
             android:layout_toRightOf="@id/setting_service_img"
             android:id="@+id/setting_service_text"
             android:layout_centerVertical="true"
@@ -185,7 +204,7 @@
 
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:layout_below="@id/setting_service_img"
             />
 
@@ -199,7 +218,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp">
 
@@ -211,9 +230,11 @@
 
             android:layout_centerVertical="true"/>
         <TextView
+            android:textColor="@color/Black"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="about"
+            android:text="关于软件"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/setting_about_img"
             android:id="@+id/setting_about_text"
@@ -226,7 +247,7 @@
 
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:layout_below="@id/setting_about_img"
             />
 
@@ -238,7 +259,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
 
@@ -253,7 +274,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="logout"
+            android:text="登出"
+            android:textColor="@color/PaleVioletRed"
+
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/setting_logout_img"
             android:id="@+id/setting_logout_text"
@@ -269,7 +292,7 @@
 
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:layout_below="@id/setting_logout_img"
             />
 
