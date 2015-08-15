@@ -7,11 +7,11 @@ public class IdentityCons {
 
 
     //aws related
-    public  static String appId="AKIAJAQ3QGM6KRDECHWA";
+    public  static String appId="";
 
-    public static String appSecret="+69m4u32oZSm3UkY14L4p7bE3vYsCFj2AkNdyO8J";
+    public static String appSecret="";
 
-    public static String bucketName="elasticbeanstalk-ap-southeast-1-109471196224";
+    public static String bucketName="";
 
 
 
