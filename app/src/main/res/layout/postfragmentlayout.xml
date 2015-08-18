@@ -36,7 +36,7 @@ android:background="@color/playground_background"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_title_btn_treehole_message_normal"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="5dp"
                     android:layout_alignParentRight="true"
                   />
             </RelativeLayout>
