@@ -21,11 +21,12 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -39,6 +40,8 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
     /** Title text used when no title is provided by the adapter. */
     private static final CharSequence EMPTY_TITLE = "";
 
+    private static int tabText=10000003;
+    private static int tabImg=10000004;
     /**
      * Interface for a callback when the selected tab has been reselected.
      */
@@ -55,8 +58,9 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
 
     private final OnClickListener mTabClickListener = new OnClickListener() {
         public void onClick(View view) {
-            TabView tabView = (TabView)view;
+            TabView1 tabView = (TabView1)view;
             final int oldSelected = mViewPager.getCurrentItem();
+
             final int newSelected = tabView.getIndex();
             mViewPager.setCurrentItem(newSelected);
             if (oldSelected == newSelected && mTabReselectedListener != null) {
@@ -66,6 +70,7 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
     };
 
     private final IcsLinearLayout mTabLayout;
+
 
     private ViewPager mViewPager;
     private OnPageChangeListener mListener;
@@ -84,7 +89,10 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
         setHorizontalScrollBarEnabled(false);
 
         mTabLayout = new IcsLinearLayout(context, R.attr.vpiTabPageIndicatorStyle);
+
         addView(mTabLayout, new ViewGroup.LayoutParams(WRAP_CONTENT, MATCH_PARENT));
+
+
     }
 
     public void setOnTabReselectedListener(OnTabReselectedListener listener) {
@@ -151,20 +159,16 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
     }
 
     private void addTab(int index, CharSequence text, int iconResId) {
-        final TabView tabView = new TabView(getContext());
-        tabView.mIndex = index;
-        tabView.setFocusable(true);
+
+        final TabView1 tabView=new TabView1(getContext(),text.toString(),iconResId,index);
+        tabView.mIndex=index;
         tabView.setOnClickListener(mTabClickListener);
-        tabView.setText(text);
-
-
-        if (iconResId != 0) {
-            tabView.setCompoundDrawablesWithIntrinsicBounds(0, iconResId, 0, 0);
-        }
-
-        tabView.setGravity(Gravity.CENTER);
 
         mTabLayout.addView(tabView, new LinearLayout.LayoutParams(0, MATCH_PARENT, 1));
+    }
+
+    public TabView1 getTabView(int index){
+        return (TabView1)mTabLayout.getChildAt(index);
     }
 
     @Override
@@ -282,6 +286,86 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
 
         public int getIndex() {
             return mIndex;
+        }
+    }
+
+
+    public class TabView1 extends RelativeLayout{
+
+        private int mIndex;
+        private TextView textView;
+        private ImageView img;
+        private ImageView mark;
+
+        public TabView1(Context context,String text, int imgReousceId,int viewIndex){
+            super(context, null, R.attr.vpiTabPageIndicatorStyle);
+            mIndex=viewIndex;
+
+            img=new ImageView(context);
+            img.setImageResource(imgReousceId);
+            img.setId(new Integer(1004));
+            RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+            img.setLayoutParams(params);
+
+
+            textView=new TextView(context);
+            textView.setText(text);
+            textView.setId(new Integer(1003));
+
+            textView.setTextColor(getResources().getColorStateList(R.color.tab_text_colors));
+           // textView.setBackgroundDrawable(getResources().getDrawable(R.drawable.tab_text_colors));
+            RelativeLayout.LayoutParams params1=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            params1.addRule(RelativeLayout.CENTER_HORIZONTAL,RelativeLayout.TRUE);
+            params1.addRule(RelativeLayout.BELOW, img.getId());
+            textView.setLayoutParams(params1);
+
+
+
+
+            mark=new ImageView(context);
+            mark.setImageResource(R.drawable.ic_tips_big_more);
+            mark.setId(new Integer(1005));
+            RelativeLayout.LayoutParams params2=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            params2.addRule(RelativeLayout.RIGHT_OF, img.getId());
+            mark.setLayoutParams(params2);
+
+
+            if(mIndex==0){
+
+                this.addView(mark);
+
+
+            }
+
+            this.addView(img);
+            this.addView(textView);
+
+        }
+
+        @Override
+        protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+            // Re-measure if we went beyond our maximum size.
+            if (mMaxTabWidth > 0 && getMeasuredWidth() > mMaxTabWidth) {
+                super.onMeasure(MeasureSpec.makeMeasureSpec(mMaxTabWidth, MeasureSpec.EXACTLY),
+                        heightMeasureSpec);
+            }
+        }
+
+        public int getIndex() {
+            return mIndex;
+        }
+
+        public TextView getTabTextView(){
+            return this.textView;
+        }
+        public ImageView getTabImgView(){
+            return this.img;
+        }
+        public ImageView getTabMarker(){
+            return this.mark;
         }
     }
 }

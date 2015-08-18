@@ -1,5 +1,6 @@
 package com.example.qingzhong.nussocial.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,13 @@ import com.example.qingzhong.nussocial.R;
 public class PostFragment extends Fragment {
 
     private FragmentTabHost tabHost;
+
+    private Context mContext;
+
+
+    public void setContext(Context context){
+        this.mContext=context;
+    }
 
     @Nullable
     @Override
@@ -37,9 +45,6 @@ public class PostFragment extends Fragment {
         tabHost.getTabWidget().getChildTabViewAt(0).setBackgroundResource(R.drawable.tab_playground_backgroundcolor);
         tabHost.getTabWidget().getChildTabViewAt(1).setBackgroundResource(R.drawable.tab_playground_backgroundcolor);
 
-
-
-        //View view=inflater.inflate(R.layout.postfragmentlayout,container,false);
 
         return view;
 

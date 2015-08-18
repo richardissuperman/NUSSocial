@@ -27,7 +27,9 @@ public class PageIndicatorAdapter extends FragmentPagerAdapter implements IconPa
     @Override
     public Fragment getItem(int position) {
         if(position==0){
-            return new PostFragment();
+            PostFragment fragment=new PostFragment();
+            fragment.setContext(context);
+            return fragment;
         }
 
 

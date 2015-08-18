@@ -24,6 +24,9 @@
     <string name="tab_playground_playground">操场</string>
     <string name="tab_playground_campus">校内</string>
 
+    <string name="tab_playground_post_like">喜欢</string>
+    <string name="tab_playground_post_copy">转发</string>
+    <string name="tab_playground_post_comments">评论</string>
 
 
     <!--   tab1 playground playground   -->
