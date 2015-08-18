@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:layout_marginTop="0dp"
     android:textColor="@color/setting_header"
@@ -8,7 +9,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/playground_scrollview">
 
 
         <LinearLayout
@@ -16,6 +18,10 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
+
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,7 +101,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/post_footer" android:orientation="horizontal"
                     android:background="@color/post_like"
 
@@ -103,17 +109,20 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
                         android:layout_weight="1"
-                        android:background="@color/post_like"
+                        android:background="@drawable/playground_post_like"
+                        android:clickable="true"
+
+
                         >
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:layout_centerHorizontal="true"
-                            android:background="@color/post_like"
+                            android:layout_centerVertical="true"
                             >
 
                             <ImageView
@@ -121,13 +130,15 @@
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_other_people_match_like"
                                 android:id="@+id/post_like_img"
+                                android:layout_centerVertical="true"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="like"
+                                android:text="@string/tab_playground_post_like"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
+
                                 android:layout_toRightOf="@id/post_like_img"/>
 
                         </RelativeLayout>
@@ -138,30 +149,34 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
                         android:layout_weight="1"
-                        android:background="@color/post_like"
+                        android:background="@drawable/playground_post_retwit"
+                        android:clickable="true"
+
                         >
 
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:layout_centerHorizontal="true"
-                            android:background="@color/post_like"
+                            android:layout_centerVertical="true"
+
                             >
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_other_people_match_like"
+                                android:src="@drawable/ic_bar_copycourse_normal"
                                 android:id="@+id/post_comment_image"
+                                android:layout_centerVertical="true"
                               />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="comments"
+                                android:text="@string/tab_playground_post_copy"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@id/post_comment_image"/>
@@ -175,30 +190,35 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
                         android:layout_weight="1"
+                        android:background="@drawable/playground_post_like"
+                        android:clickable="true"
+
                         >
 
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:layout_centerHorizontal="true"
-                            android:background="@color/post_like"
+                            android:layout_centerVertical="true"
+
                             >
 
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_other_people_match_like"
+                                android:src="@drawable/ic_bar_comment_normal"
                                 android:id="@+id/post_retwit_img"
+                                android:layout_centerVertical="true"
                               />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="retwit"
+                                android:text="@string/tab_playground_post_comments"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@id/post_retwit_img"/>
@@ -312,35 +332,40 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/post_footer1" android:orientation="horizontal"
                     android:background="@color/post_like"
                     >
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
                         android:layout_weight="1"
-                        android:background="@color/post_like"
+                        android:background="@drawable/playground_post_like"
+
+                        android:clickable="true"
 
                         >
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_height="40dp"
+                            android:layout_centerHorizontal="true"
+                            >
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_other_people_match_like"
                                 android:id="@+id/post_like_img1"
+                                android:layout_centerVertical="true"
                                 />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="like"
+                                android:text="@string/tab_playground_post_like"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@id/post_like_img1"/>
@@ -352,29 +377,34 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:background="@color/post_like"
+                        android:background="@drawable/playground_post_retwit"
 
+                        android:clickable="true"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        >
 
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_height="40dp"
+                            android:layout_centerHorizontal="true"
+
+                            >
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_other_people_match_like"
+                                android:src="@drawable/ic_bar_copycourse_normal"
                                 android:id="@+id/post_comment_image1"
+                                android:layout_centerVertical="true"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="comments"
+                                android:text="@string/tab_playground_post_copy"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@id/post_comment_image1"/>
@@ -388,29 +418,32 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
                         android:layout_weight="1"
-                        android:background="@color/post_like"
+                        android:background="@drawable/playground_post_like"
+                        android:clickable="true"
                         >
 
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_height="40dp"
+                            android:layout_centerHorizontal="true"
+                            >
 
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_other_people_match_like"
+                                android:src="@drawable/ic_bar_comment_normal"
                                 android:id="@+id/post_retwit_img1"
+                                android:layout_centerVertical="true"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="retwit"
+                                android:text="@string/tab_playground_post_comments"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@id/post_retwit_img1"/>
@@ -513,7 +546,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/post_footer2" android:orientation="horizontal"
                     android:background="@color/post_like"
 
@@ -521,25 +554,30 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@drawable/playground_post_like"
+                        android:clickable="true"
+                        >
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_height="40dp"
+                            android:layout_centerHorizontal="true"
+                            >
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_other_people_match_like"
                                 android:id="@+id/post_like_img2"
+                                android:layout_centerVertical="true"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="like"
+                                android:text="@string/tab_playground_post_like"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@id/post_like_img2"/>
@@ -552,28 +590,31 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
                         android:layout_weight="1"
-                        android:background="@color/post_like"
+                        android:background="@drawable/playground_post_retwit"
+                        android:clickable="true"
                         >
 
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_height="40dp"
+                            android:layout_centerHorizontal="true"
+                            >
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_other_people_match_like"
+                                android:src="@drawable/ic_bar_copycourse_normal"
                                 android:id="@+id/post_comment_image2"
+                                android:layout_centerVertical="true"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="comments"
+                                android:text="@string/tab_playground_post_copy"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@id/post_comment_image2"/>
@@ -587,30 +628,35 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:orientation="horizontal"
                         android:layout_weight="1"
-                        android:background="@color/post_like"
+                        android:background="@drawable/playground_post_like"
+
+                        android:clickable="true"
 
                         >
 
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
+                            android:layout_height="40dp"
+                            android:layout_centerHorizontal="true"
+
+                            >
 
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_other_people_match_like"
+                                android:src="@drawable/ic_bar_comment_normal"
                                 android:id="@+id/post_retwit_img2"
+                                android:layout_centerVertical="true"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="retwit"
+                                android:text="@string/tab_playground_post_comments"
                                 android:layout_marginLeft="5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toRightOf="@id/post_retwit_img2"/>
@@ -635,4 +681,17 @@
 
 
 
-</LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/add_comment_floatbutton"
+        app:layout_anchor="@id/playground_scrollview"
+        app:layout_anchorGravity="bottom|right"/>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,21 +1,24 @@
 package com.example.qingzhong.nussocial.activity;
 
+import android.content.BroadcastReceiver;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import com.example.qingzhong.nussocial.R;
 import com.example.qingzhong.nussocial.adapter.PageIndicatorAdapter;
+import com.example.qingzhong.nussocial.fragment.PlayGroundFragment;
 import com.viewpagerindicator.TabPageIndicator;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements PlayGroundFragment.ControlPostRead{
     //private ActionBar actionBar;
 
     private ViewPager pager;
-    private TabPageIndicator pageIndicator;
+    public TabPageIndicator pageIndicator;
+    private BroadcastReceiver readReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,31 +26,10 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         pager=(ViewPager)findViewById(R.id.pager);
-        pager.setAdapter(new PageIndicatorAdapter(getSupportFragmentManager(),this));
+        pager.setAdapter(new PageIndicatorAdapter(getSupportFragmentManager(), this));
 
         pageIndicator=(TabPageIndicator)findViewById(R.id.pageindicator);
         pageIndicator.setViewPager(pager);
-
-
-
-        pageIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-                Toast.makeText(getApplicationContext(),"change to "+position,Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
 
     }
 
@@ -74,4 +56,15 @@ public class MainActivity extends FragmentActivity {
     }
 
 
+    @Override
+    public void readPost() {
+
+        this.pageIndicator.getTabView(0).getTabMarker().setVisibility(View.INVISIBLE);
+
+    }
+
+    @Override
+    public void hasnewPost(int number) {
+        this.pageIndicator.getTabView(0);
+    }
 }

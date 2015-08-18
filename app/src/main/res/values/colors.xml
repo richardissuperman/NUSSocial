@@ -148,7 +148,17 @@
 
     <color name="post_like">#F4FBFB</color>
 
+    <color name="playground_comments_divider">#D3D3D3</color>
+    <color name="playground_comments_pressed">#e4f1f5</color>
+
 
     <color name="playground_background">#DFECF3</color>
     <color name="post_name">#1F1F1F</color>
+
+
+    <!-- tab color -->
+
+    <color name="tab_text_selected">#0080FF</color>
+    <color name="tab_text_unselected">#90AAC2</color>
+    <color name="comment_floatbutton_background">#80FFFFFF</color>
 </resources>

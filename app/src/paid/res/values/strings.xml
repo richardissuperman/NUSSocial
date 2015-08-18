@@ -1,0 +1,51 @@
+<resources>
+    
+    
+    <!-- color -->
+    <color name="playground_blue">#0C98F4</color>
+
+
+
+    <string name="app_name">NUSSocial</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings2</string>
+
+
+
+    <!-- tab strings  -->
+    <string name="tab_playground">下课聊</string>
+    <string name="tab_msg">纸飞机</string>
+    <string name="tab_found">发现</string>
+    <string name="tab_settings">设置!!!!!!!</string>
+
+
+    <!-- tab1 playground-->
+    <string name="tab_playground_playground">操场</string>
+    <string name="tab_playground_campus">校内</string>
+
+
+
+    <!--   tab1 playground playground   -->
+
+    <string name="testString">
+thanks Gennadii, it works! , but i have one more question, for example, if i want to set the ImageView not margin_left but margin_right, will it coordinate imageview according to the relativelayout? i tried but seems like it did not work –</string>
+
+
+    <!--   tab1 playground campus  -->
+
+
+
+
+
+
+
+
+
+
+
+    <!--  tab4 settings  -->
+
+    <string name="settingtitle">设置</string>
+
+</resources>
