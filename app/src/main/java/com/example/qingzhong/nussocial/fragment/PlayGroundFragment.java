@@ -28,7 +28,7 @@ public class PlayGroundFragment extends Fragment {
 
 
 
-        scrollView=(ScrollView)view.findViewById(R.id.playground_scrolview);
+        scrollView=(ScrollView)view.findViewById(R.id.playground_scrollview);
         scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
             public void onScrollChanged() {

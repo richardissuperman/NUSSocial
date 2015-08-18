@@ -160,4 +160,5 @@
 
     <color name="tab_text_selected">#0080FF</color>
     <color name="tab_text_unselected">#90AAC2</color>
+    <color name="comment_floatbutton_background">#80FFFFFF</color>
 </resources>
