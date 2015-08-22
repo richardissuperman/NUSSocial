@@ -21,6 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.qingzhong.nussocial.R;
 import com.example.qingzhong.nussocial.cons.StatusCons;
+import com.example.qingzhong.nussocial.interfaces.VolleyContext;
 import com.example.qingzhong.nussocial.utls.AwsUtils;
 import com.example.qingzhong.nussocial.utls.PreferenceUtil;
 
@@ -32,7 +33,7 @@ import java.io.IOException;
 /**
  * Created by qingzhong on 5/8/15.
  */
-public class SettingFragment extends Fragment implements  Handler.Callback{
+public class SettingFragment extends Fragment implements  Handler.Callback, VolleyContext{
 
 
     private ImageView profilepic;
@@ -57,7 +58,7 @@ public class SettingFragment extends Fragment implements  Handler.Callback{
             //init all the views
             initUI(view);
             //determine if we have cache values for profile
-            setUI();
+            startDownloading();
         }
         catch (IOException e){
             e.printStackTrace();
@@ -74,41 +75,8 @@ public class SettingFragment extends Fragment implements  Handler.Callback{
     }
 
 
-    private void setUI() throws IOException{
-
-        String profilePath=preferenceUtil.getProfileFilePath();
-        //start monitoring if the profile img has been got
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(map==null){
-                }
-                Message msg=new Message();
-                msg.what= StatusCons.BITMAP_COMPLETE;
-                handler.sendMessage(msg);
-            }
-        }).start();
-
-        //no cache, start downloading from aws
-        if(profilePath==null) {
-            queue.add(request);
-        }
-
-        //has cache set all the values in UI
-        else{
-            Log.e("retrive data from Local","begin");
-            Log.e("LOCAL PROFILE BITMAP",profilePath);
-            Log.e("LOCAL PROFILE NAME",preferenceUtil.getProfileName());
-            map=new File(profilePath);
-            profilename.setText(preferenceUtil.getProfileName());
-        }
-
-    }
-
-
-
-    private void initVolleyWidgets(){
-
+    @Override
+    public void initVolleyWidgets() {
         //init the Volley queue
         queue= Volley.newRequestQueue(getActivity());
 
@@ -137,7 +105,7 @@ public class SettingFragment extends Fragment implements  Handler.Callback{
                     public void run() {
 
                         try {
-                            map = new AwsUtils().DownloadImages(profile_img_name, getActivity());
+                            map = new AwsUtils().DownloadImages(profile_img_name);
                             preferenceUtil.setProfileFilePath(map.getAbsolutePath());
                         }
 
@@ -158,6 +126,38 @@ public class SettingFragment extends Fragment implements  Handler.Callback{
             }
         });
 
+    }
+
+
+    @Override
+    public void startDownloading() throws IOException {
+
+        String profilePath=preferenceUtil.getProfileFilePath();
+        //start monitoring if the profile img has been got
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(map==null){
+                }
+                Message msg=new Message();
+                msg.what= StatusCons.BITMAP_COMPLETE;
+                handler.sendMessage(msg);
+            }
+        }).start();
+
+        //no cache, start downloading from aws
+        if(profilePath==null) {
+            queue.add(request);
+        }
+
+        //has cache set all the values in UI
+        else{
+            Log.e("retrive data from Local","begin");
+            Log.e("LOCAL PROFILE BITMAP",profilePath);
+            Log.e("LOCAL PROFILE NAME",preferenceUtil.getProfileName());
+            map=new File(profilePath);
+            profilename.setText(preferenceUtil.getProfileName());
+        }
 
     }
 
