@@ -1,6 +1,5 @@
 package com.example.qingzhong.nussocial.utls;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.amazonaws.auth.AWSCredentials;
@@ -29,7 +28,7 @@ public class AwsUtils {
 
     }
 
-    public File DownloadImages(String name,Context context) throws IOException{
+    public File DownloadImages(String name) throws IOException{
 
 
 

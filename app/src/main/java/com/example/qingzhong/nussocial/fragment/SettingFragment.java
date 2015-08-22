@@ -105,7 +105,7 @@ public class SettingFragment extends Fragment implements  Handler.Callback, Voll
                     public void run() {
 
                         try {
-                            map = new AwsUtils().DownloadImages(profile_img_name, getActivity());
+                            map = new AwsUtils().DownloadImages(profile_img_name);
                             preferenceUtil.setProfileFilePath(map.getAbsolutePath());
                         }
 

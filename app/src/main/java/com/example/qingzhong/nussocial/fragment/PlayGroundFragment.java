@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.example.qingzhong.nussocial.R;
 import com.example.qingzhong.nussocial.adapter.PlaygroundRecyclerViewAdapter;
 import com.example.qingzhong.nussocial.datamodel.Post;
 import com.example.qingzhong.nussocial.interfaces.VolleyContext;
+import com.example.qingzhong.nussocial.utls.ListUtils;
 
 import org.json.JSONArray;
 
@@ -38,6 +40,7 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
     private RequestQueue requestQueue;
     private Request request;
     private ArrayList<Post> postList;
+    private PlaygroundRecyclerViewAdapter adapter;
 
     @Nullable
     @Override
@@ -66,9 +69,20 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         playgroundRecycle.setLayoutManager(linearLayoutManager);
-        playgroundRecycle.setAdapter(new PlaygroundRecyclerViewAdapter(postList));
 
+      //  postList=new ArrayList<Post>();
+        adapter=new PlaygroundRecyclerViewAdapter(postList);
+       // adapter.setList(postList);
+        playgroundRecycle.setAdapter(adapter);
 
+        try {
+
+            startDownloading();
+        }
+
+        catch(IOException e){
+            e.printStackTrace();
+        }
 
         return view;
     }
@@ -81,17 +95,22 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
 
         //init the request
 
-        request=new JsonArrayRequest(new String(),new Response.Listener<JSONArray>(){
+        request=new JsonArrayRequest(new String("http://192.168.1.32:8080/RestCrud/api/post/list"),new Response.Listener<JSONArray>(){
 
             @Override
             public void onResponse(JSONArray response) {
-
-
-
+                Log.e("download","download json successfully");
+               // postList= ListUtils.postToArray(response,);
+                postList=new ArrayList<Post>();
+                new ListUtils(adapter).postToArray(response, postList);
+                adapter.list=postList;
+                adapter.notifyDataSetChanged();
             }
         },new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
+
+                Log.e("download",error.toString());
 
             }
         });
