@@ -1,7 +1,9 @@
 package com.example.qingzhong.nussocial.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.qingzhong.nussocial.R;
+import com.example.qingzhong.nussocial.activity.SendPostActivity;
 import com.example.qingzhong.nussocial.adapter.PlaygroundRecyclerViewAdapter;
 import com.example.qingzhong.nussocial.datamodel.Post;
 import com.example.qingzhong.nussocial.interfaces.VolleyContext;
@@ -41,6 +44,7 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
     private Request request;
     private ArrayList<Post> postList;
     private PlaygroundRecyclerViewAdapter adapter;
+    private FloatingActionButton actionButton;
 
     @Nullable
     @Override
@@ -48,7 +52,7 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
        // return super.onCreateView(inflater, container, savedInstanceState);
 
         View view=inflater.inflate(R.layout.playgroundlayout,container,false);
-
+        actionButton=(FloatingActionButton)view.findViewById(R.id.send_post_button);
         playgroundRecycle=(RecyclerView)view.findViewById(R.id.playground_recycler_view);
         playgroundRecycle.setHasFixedSize(true);
         playgroundRecycle.setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -95,7 +99,7 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
 
         //init the request
 
-        request=new JsonArrayRequest(new String("http://192.168.1.32:8080/RestCrud/api/post/list"),new Response.Listener<JSONArray>(){
+        request=new JsonArrayRequest(new String("http://default-environment-y9p6ghe7f5.elasticbeanstalk.com/api/post/list"),new Response.Listener<JSONArray>(){
 
             @Override
             public void onResponse(JSONArray response) {
@@ -111,6 +115,20 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
             public void onErrorResponse(VolleyError error) {
 
                 Log.e("download",error.toString());
+
+            }
+        });
+
+
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              //  if(v.getId()==R.id.send_post_button){
+                    Intent intent=new Intent(getActivity(), SendPostActivity.class);
+                    getActivity().startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.abc_slide_in_bottom,R.anim.abc_popup_exit);
+                //}
 
             }
         });

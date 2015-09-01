@@ -31,6 +31,8 @@ public class ListUtils implements Handler.Callback{
     }
     public  ArrayList<Post> postToArray(JSONArray jsonArray,ArrayList<Post> list){
 
+
+
         for(int i=0;i<jsonArray.length();i++){
             try {
                 final JSONObject object = jsonArray.getJSONObject(i);

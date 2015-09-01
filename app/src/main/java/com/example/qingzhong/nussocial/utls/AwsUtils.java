@@ -6,6 +6,7 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.mobileconnectors.s3.transfermanager.Download;
 import com.amazonaws.mobileconnectors.s3.transfermanager.TransferManager;
+import com.amazonaws.mobileconnectors.s3.transfermanager.Upload;
 import com.example.qingzhong.nussocial.cons.IdentityCons;
 
 import java.io.File;
@@ -24,7 +25,14 @@ public class AwsUtils {
 
 
 
-    public void UploadImages(InputStream stream){
+    public void UploadImages(InputStream stream,String key){
+
+        TransferManager manager=new TransferManager(credentials);
+        Upload upload=manager.upload(IdentityCons.bucketName,"fu",stream,null);
+
+
+      //  Download download=manager.download(IdentityCons.bucketName,name,file);
+
 
     }
 
@@ -41,7 +49,7 @@ public class AwsUtils {
 
         while(!download.isDone()){
 
-            Log.e("upload progress",download.getProgress().getPercentTransferred()+" ");
+          //  Log.e("upload progress",download.getProgress().getPercentTransferred()+" ");
 
         }
 
@@ -58,5 +66,17 @@ public class AwsUtils {
 
         return null;
     }
+
+
+
+    public String generateBitmapName(){
+
+        String s=(System.currentTimeMillis()+Math.random()+100)+".jpg";
+
+        return s;
+
+    }
+
+
 
 }

@@ -81,7 +81,7 @@ public class SettingFragment extends Fragment implements  Handler.Callback, Voll
         queue= Volley.newRequestQueue(getActivity());
 
         //init the request
-        request=new JsonObjectRequest(new String("http://192.168.1.32:8080/RestCrud/user/richard_johnson@sina.com"), new Response.Listener<JSONObject>() {
+        request=new JsonObjectRequest(new String("http://default-environment-y9p6ghe7f5.elasticbeanstalk.com/api/user/richard_johnson@sina.com"), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

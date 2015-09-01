@@ -46,5 +46,7 @@ dependencies {
     compile 'com.amazonaws:aws-android-sdk-ddb:2.+'
     compile 'com.android.support:design:22.2.0'
 
+    compile 'com.squareup.okhttp:okhttp:2.1.0'
+
 
 }
