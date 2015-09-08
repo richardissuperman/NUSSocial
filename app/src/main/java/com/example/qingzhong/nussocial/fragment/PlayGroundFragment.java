@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,6 +24,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.qingzhong.nussocial.R;
 import com.example.qingzhong.nussocial.activity.SendPostActivity;
 import com.example.qingzhong.nussocial.adapter.PlaygroundRecyclerViewAdapter;
+import com.example.qingzhong.nussocial.cons.IdentityCons;
+import com.example.qingzhong.nussocial.cons.StatusCons;
 import com.example.qingzhong.nussocial.datamodel.Post;
 import com.example.qingzhong.nussocial.interfaces.VolleyContext;
 import com.example.qingzhong.nussocial.utls.ListUtils;
@@ -42,6 +46,7 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
 
     private RequestQueue requestQueue;
     private Request request;
+   // JsonRequest
     private ArrayList<Post> postList;
     private PlaygroundRecyclerViewAdapter adapter;
     private FloatingActionButton actionButton;
@@ -81,7 +86,14 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
 
         try {
 
-            startDownloading();
+            if(adapter.list==null||adapter.list.size()<=1) {
+                startDownloading();
+                Toast.makeText(getActivity(),"need to download",Toast.LENGTH_SHORT).show();
+
+            }
+            else {
+                Toast.makeText(getActivity(),"no need to download!!!",Toast.LENGTH_SHORT).show();
+            }
         }
 
         catch(IOException e){
@@ -99,7 +111,8 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
 
         //init the request
 
-        request=new JsonArrayRequest(new String("http://default-environment-y9p6ghe7f5.elasticbeanstalk.com/api/post/list"),new Response.Listener<JSONArray>(){
+        Log.e("e","init");
+        request=new JsonArrayRequest(new String(IdentityCons.hostName+"post/list"),new Response.Listener<JSONArray>(){
 
             @Override
             public void onResponse(JSONArray response) {
@@ -120,13 +133,21 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
         });
 
 
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                12000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        request.setShouldCache(false);
+
+
+
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
               //  if(v.getId()==R.id.send_post_button){
                     Intent intent=new Intent(getActivity(), SendPostActivity.class);
-                    getActivity().startActivity(intent);
+                    getActivity().startActivityForResult(intent, StatusCons.SEND_POST);
                     getActivity().overridePendingTransition(R.anim.abc_slide_in_bottom,R.anim.abc_popup_exit);
                 //}
 
@@ -135,10 +156,19 @@ public class PlayGroundFragment extends Fragment implements VolleyContext{
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
 
     @Override
     public void startDownloading() throws IOException {
         requestQueue.add(request);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     public interface ControlPostRead{

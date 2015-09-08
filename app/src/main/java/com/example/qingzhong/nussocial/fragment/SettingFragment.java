@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.qingzhong.nussocial.R;
+import com.example.qingzhong.nussocial.cons.IdentityCons;
 import com.example.qingzhong.nussocial.cons.StatusCons;
 import com.example.qingzhong.nussocial.interfaces.VolleyContext;
 import com.example.qingzhong.nussocial.utls.AwsUtils;
@@ -81,7 +83,7 @@ public class SettingFragment extends Fragment implements  Handler.Callback, Voll
         queue= Volley.newRequestQueue(getActivity());
 
         //init the request
-        request=new JsonObjectRequest(new String("http://default-environment-y9p6ghe7f5.elasticbeanstalk.com/api/user/richard_johnson@sina.com"), new Response.Listener<JSONObject>() {
+        request=new JsonObjectRequest(new String(IdentityCons.hostName+"user/richard_johnson@sina.com"), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -125,6 +127,12 @@ public class SettingFragment extends Fragment implements  Handler.Callback, Voll
 
             }
         });
+
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                12000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
     }
 

@@ -1,7 +1,6 @@
 package com.example.qingzhong.nussocial.utls;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
 
@@ -33,7 +32,7 @@ public class ListUtils implements Handler.Callback{
 
 
 
-        for(int i=0;i<jsonArray.length();i++){
+        for(int i=jsonArray.length()-1;i>=0;i--){
             try {
                 final JSONObject object = jsonArray.getJSONObject(i);
                 String nickname=object.getString("usernickname");
@@ -56,9 +55,8 @@ public class ListUtils implements Handler.Callback{
                             try {
 
                                 File file = awsUtils.DownloadImages(object.getString("avatar"));
-                                post.avatar= BitmapFactory.decodeFile(file.getAbsolutePath());
-                               // post.avatar=avatar;
-                                handler.sendMessage(new Message());
+                                //post.avatar= BitmapFactory.decodeFile(file.getAbsolutePath());
+                                //handler.sendMessage(new Message());
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -99,11 +97,10 @@ public class ListUtils implements Handler.Callback{
                             try {
 
 
-                                File file = awsUtils.DownloadImages(object.getString("images"));
-                                post.images = new Bitmap[1];
-                                post.images[0] = BitmapFactory.decodeFile(file.getAbsolutePath());
-                               // post.images = bitmaps;
-                                handler.sendMessage(new Message());
+                               // File file = awsUtils.DownloadImages(object.getString("images"));
+                               // post.images = new Bitmap[1];
+                               // post.images[0] = BitmapFactory.decodeFile(file.getAbsolutePath());
+                                //handler.sendMessage(new Message());
 
 
                             } catch (Exception e) {

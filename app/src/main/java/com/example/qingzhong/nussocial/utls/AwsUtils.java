@@ -28,7 +28,12 @@ public class AwsUtils {
     public void UploadImages(InputStream stream,String key){
 
         TransferManager manager=new TransferManager(credentials);
-        Upload upload=manager.upload(IdentityCons.bucketName,"fu",stream,null);
+        Upload upload=manager.upload(IdentityCons.bucketName,key,stream,null);
+
+
+        while(!upload.isDone()){
+
+        }
 
 
       //  Download download=manager.download(IdentityCons.bucketName,name,file);

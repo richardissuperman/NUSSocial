@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.qingzhong.nussocial.R;
+import com.example.qingzhong.nussocial.fragment.PlayGroundFragment;
 import com.example.qingzhong.nussocial.fragment.PostFragment;
 import com.example.qingzhong.nussocial.fragment.SettingFragment;
 import com.viewpagerindicator.IconPagerAdapter;
@@ -19,17 +20,25 @@ public class PageIndicatorAdapter extends FragmentPagerAdapter implements IconPa
     private static int[] tabResouces={R.drawable.ic_tab_playground,R.drawable.ic_tab_msg,R.drawable.ic_tab_found,R.drawable.ic_tab_settings};
     private FragmentManager manager;
     private Context context;
+    private Fragment[] fragments=new Fragment[4];
     public PageIndicatorAdapter(FragmentManager manager,Context context){
         super(manager);
         this.context=context;
+
     }
 
     @Override
     public Fragment getItem(int position) {
         if(position==0){
-            PostFragment fragment=new PostFragment();
-            fragment.setContext(context);
-            return fragment;
+            if(fragments[0]==null) {
+                PostFragment fragment = new PostFragment();
+                fragment.setContext(context);
+                fragments[0]=fragment;
+                return fragments[0];
+            }
+            else{
+                return fragments[0];
+            }
         }
 
 
@@ -56,6 +65,20 @@ public class PageIndicatorAdapter extends FragmentPagerAdapter implements IconPa
     @Override
     public int getIconResId(int i) {
         return tabResouces[i];
+    }
+
+
+    public PlayGroundFragment getPlaygroundFragment(){
+        if (fragments[0]!=null){
+        }
+        else{
+            PostFragment fragment = new PostFragment();
+            fragment.setContext(context);
+            fragments[0]=fragment;
+
+        }
+        return (PlayGroundFragment)fragments[0];
+
     }
 
 

@@ -84,7 +84,7 @@
            android:layout_centerVertical="true"
            android:layout_marginLeft="10dp"
            android:clickable="true"
-           android:id="@+id/send_post_button"
+           android:id="@+id/take_post_pic_button"
 
            />
     </RelativeLayout>

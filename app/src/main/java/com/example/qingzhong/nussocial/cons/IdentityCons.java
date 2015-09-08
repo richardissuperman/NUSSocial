@@ -7,11 +7,11 @@ public class IdentityCons {
 
 
     //aws related
-    public  static String appId="";
+    public  static String appId="AKIAIPKW2MVES4M4VYVQ";
 
-    public static String appSecret="";
+    public static String appSecret="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";
 
-    public static String bucketName="";
+    public static String bucketName="elasticbeanstalk-ap-southeast-1-109471196224";
 
 
 
@@ -21,6 +21,8 @@ public class IdentityCons {
     public static String[] identityArray={"profilepath","profilename"};
 
 
+
+    public static String hostName="http://172.23.113.15:8080/RestCrud/api/";
 
 
 
