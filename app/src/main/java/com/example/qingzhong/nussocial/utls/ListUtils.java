@@ -39,9 +39,11 @@ public class ListUtils implements Handler.Callback{
                 String text=object.getString("text");
                 final String time=object.getString("date");
                 String gender=object.getString("gender");
+                int comments=Integer.parseInt(object.getString("commentnumber"));
+                int likes=Integer.parseInt(object.getString("likes"));
               //  Bitmap[] bitmaps=null;
 
-                final Post post=new Post(nickname,text,time,gender,bitmaps,avatar);
+                final Post post=new Post(nickname,text,time,gender,bitmaps,avatar,comments,likes);
                 list.add(post);
 
 

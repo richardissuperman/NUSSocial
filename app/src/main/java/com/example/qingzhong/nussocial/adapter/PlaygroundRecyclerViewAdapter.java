@@ -71,6 +71,19 @@ public class PlaygroundRecyclerViewAdapter extends RecyclerView.Adapter<Playgrou
             }
          //   holder.setPostImageView();
 
+            if(post.likes>0){
+                holder.setLikeTextView(post.likes+"");
+            }
+            else {
+                //do nothing
+            }
+
+            if(post.comments>0){
+                holder.setCommentTextView(post.comments+"");
+            }
+            else {
+                //do nothing
+            }
         }
 
     }
@@ -97,6 +110,8 @@ public class PlaygroundRecyclerViewAdapter extends RecyclerView.Adapter<Playgrou
         private ImageView genderImageView;
         private TextView postTextView;
         private ImageView postImageView;
+        private TextView likeTextView;
+        private TextView commentTextView;
         private View rootView;
 
         public PostViewHolder(View view){
@@ -109,6 +124,10 @@ public class PlaygroundRecyclerViewAdapter extends RecyclerView.Adapter<Playgrou
             postTextView=(TextView)rootView.findViewById(R.id.posttext);
             postImageView=(ImageView)rootView.findViewById(R.id.postimg);
             profileImageView=(ImageView)rootView.findViewById(R.id.profileimg);
+            likeTextView=(TextView)rootView.findViewById(R.id.post_like_text);
+            commentTextView=(TextView)rootView.findViewById(R.id.post_comment_text);
+
+
 
         }
 
@@ -136,6 +155,14 @@ public class PlaygroundRecyclerViewAdapter extends RecyclerView.Adapter<Playgrou
         }
         public void setProfileImageView(int reourceId){
             this.profileImageView.setImageResource(reourceId);
+        }
+
+        public void setLikeTextView(String s){
+            this.likeTextView.setText(s);
+        }
+
+        public void setCommentTextView(String s){
+            this.commentTextView.setText(s);
         }
 
     }

@@ -22,7 +22,7 @@ public class IdentityCons {
 
 
 
-    public static String hostName="http://172.23.113.15:8080/RestCrud/api/";
+    public static String hostName="http://192.168.1.4:8080/RestCrud/api/";
 
 
 

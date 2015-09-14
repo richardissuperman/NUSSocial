@@ -131,6 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tab_playground_post_like"
+                        android:id="@+id/post_like_text"
                         android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
 
@@ -165,7 +166,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_bar_copycourse_normal"
-                        android:id="@+id/post_comment_image"
+                        android:id="@+id/post_retwit_image"
                         android:layout_centerVertical="true"
                         />
                     <TextView
@@ -174,7 +175,7 @@
                         android:text="@string/tab_playground_post_copy"
                         android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/post_comment_image"/>
+                        android:layout_toRightOf="@id/post_retwit_image"/>
 
                 </RelativeLayout>
 
@@ -207,16 +208,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_bar_comment_normal"
-                        android:id="@+id/post_retwit_img"
+                        android:id="@+id/post_comment_img"
                         android:layout_centerVertical="true"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tab_playground_post_comments"
+                        android:id="@+id/post_comment_text"
                         android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/post_retwit_img"/>
+                        android:layout_toRightOf="@id/post_comment_img"/>
 
                 </RelativeLayout>
 
