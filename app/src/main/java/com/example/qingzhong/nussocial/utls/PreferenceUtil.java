@@ -1,8 +1,8 @@
 package com.example.qingzhong.nussocial.utls;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.example.qingzhong.nussocial.cons.IdentityCons;
 
@@ -21,7 +21,9 @@ public class PreferenceUtil {
     public PreferenceUtil(Activity activity){
 
         this.context=activity;
-        prefs=context.getPreferences(Context.MODE_PRIVATE);
+//        prefs=context.getPreferences(Context.MODE_PRIVATE);
+         prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
 
     }
 
@@ -55,5 +57,31 @@ public class PreferenceUtil {
             editor.clear();
             editor.commit();
        // }
+    }
+
+
+    public void setApiKey(String api){
+
+        SharedPreferences.Editor editor=prefs.edit();
+        editor.putString(IdentityCons.apiKey, api);
+        editor.commit();
+    }
+
+
+    public String getApiKey(){
+        return prefs.getString(IdentityCons.apiKey,null);
+    }
+
+
+    public void setUserid(String userid){
+
+        SharedPreferences.Editor editor=prefs.edit();
+        editor.putString(IdentityCons.userId, userid);
+        editor.commit();
+    }
+
+
+    public String getUserId(){
+        return prefs.getString(IdentityCons.userId,null);
     }
 }

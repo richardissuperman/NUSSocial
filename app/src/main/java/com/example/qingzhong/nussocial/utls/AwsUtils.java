@@ -65,7 +65,6 @@ public class AwsUtils {
 
         if(file.getName().endsWith(".jpg")){
             //return BitmapFactory.decodeFile(file.getAbsolutePath());
-
             return file;
         }
 
@@ -75,11 +74,8 @@ public class AwsUtils {
 
 
     public String generateBitmapName(){
-
         String s=(System.currentTimeMillis()+Math.random()+100)+".jpg";
-
         return s;
-
     }
 
 

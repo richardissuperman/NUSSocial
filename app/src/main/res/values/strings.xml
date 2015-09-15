@@ -59,5 +59,6 @@ thanks Gennadii, it works! , but i have one more question, for example, if i wan
     <!--  tab4 settings  -->
 
     <string name="settingtitle">设置</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

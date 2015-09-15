@@ -21,6 +21,11 @@ public class IdentityCons {
     public static String[] identityArray={"profilepath","profilename"};
 
 
+    public static String apiKey="c_apikey";
+
+    public static String userId="c_userid";
+
+
 
     public static String hostName="http://192.168.1.4:8080/RestCrud/api/";
 

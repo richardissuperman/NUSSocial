@@ -83,13 +83,6 @@ public class ListUtils implements Handler.Callback{
 
 
 
-
-
-
-
-
-
-
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
