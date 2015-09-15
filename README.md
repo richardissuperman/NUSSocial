@@ -6,12 +6,16 @@ Backend Service is here:
 https://github.com/caolei-ntu/NewRestCrud
 
 
-main page
-![drawing](/wiki/s1.jpeg)
+main page 
+
+
+:![drawing](/wiki/s1.jpeg)
 
 
 profile
-![drawing](/wiki/s2.jpeg)
+
+
+:![drawing](/wiki/s2.jpeg)
 
 
 
