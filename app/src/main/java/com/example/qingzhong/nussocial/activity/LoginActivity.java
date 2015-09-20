@@ -25,7 +25,6 @@ import com.example.qingzhong.nussocial.R;
 import com.example.qingzhong.nussocial.cons.IdentityCons;
 import com.example.qingzhong.nussocial.interfaces.VolleyContext;
 import com.example.qingzhong.nussocial.utls.PreferenceUtil;
-import com.example.qingzhong.nussocial.utls.StringUtil;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -268,11 +267,12 @@ public class LoginActivity extends AppCompatActivity  implements Handler.Callbac
                 String userid=usernameText.getText().toString();
                 util.setUserid(userid);
                 //edit text content
-                String hashcode= StringUtil.getSHA(passwordText.getText().toString());
+                //String hashcode= StringUtil.getSHA(passwordText.getText().toString());
+                String pass=passwordText.getText().toString();
                 //return super.getParams();
                 HashMap<String,String> headers=new HashMap<>();
                 headers.put("username",userid);
-                headers.put("hashcode",hashcode);
+                headers.put("password",pass);
 
                 return headers;            }
         };
